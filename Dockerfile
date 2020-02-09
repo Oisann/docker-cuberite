@@ -5,7 +5,7 @@ ENV ADMIN_USERNAME=admin \
 
 WORKDIR /opt
 RUN apk update && apk add curl
-RUN curl -sSfL https://download.cuberite.org | sh && mv Server Cuberite
+RUN curl -sSfL https://download.cuberite.org | sh && mv ./Server ./Cuberite
 WORKDIR /opt/Cuberite
 
 CMD [ "./Cuberite" ]
