@@ -4,7 +4,7 @@ ENV ADMIN_USERNAME=admin \
     ADMIN_PASSWORD=Redstone
 
 WORKDIR /opt
-RUN apk update -y && apk install curl -y
+RUN apk update && apk install curl
 RUN curl -sSfL https://download.cuberite.org | sh && mv Server Cuberite
 WORKDIR /opt/Cuberite
 
