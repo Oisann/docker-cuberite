@@ -14,8 +14,7 @@ on:
   pull_request:
 
 env:
-  # TODO: Change variable to your image's name.
-  IMAGE_NAME: image
+  IMAGE_NAME: cuberite
 
 jobs:
   # Run tests.
@@ -56,6 +55,9 @@ jobs:
       - name: Push image
         run: |
           IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+
+          # Force the image id to be all lowercase
+          IMAGE_ID="${IMAGE_ID,,}"
 
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
